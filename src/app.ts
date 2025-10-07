@@ -3,6 +3,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import connectDB from '@/database/db';
 import authRoutes from '@/routes/auth.routes';
+import userRoutes from '@/routes/user.routes';
 
 connectDB();
 const app = express();
@@ -26,5 +27,6 @@ app.get('/health', (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
 
 export default app;

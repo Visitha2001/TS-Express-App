@@ -81,4 +81,19 @@ const loginUser = async (req: Request, res: Response) => {
     }
 };
 
-export { registerUser, loginUser };
+const logoutUser = async (req: Request, res: Response) => {
+    try {
+        res.cookie("token", "", {
+            httpOnly: true,
+            secure: true,
+            sameSite: "strict",
+            maxAge: 0
+        });
+        return res.status(200).json({ message: "User logged out successfully." });
+    } catch (error: any) {
+        console.error("Error logging out user:", error);
+        return res.status(500).json({ message: "Failed to log out user." });
+    }
+};
+
+export { registerUser, loginUser, logoutUser };
