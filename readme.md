@@ -9,3 +9,10 @@ npx tsc --init
 npm i nodemon --save-dev 
 npm i -D ts-node
 npm i -D @types/nodemon
+
+npm i module-alias
+npm i @types/module-alias --save-dev
+
+run
+npm run build
+npm run dev
